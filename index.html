@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FMS Graduation Showcase</title>
+    <link rel="stylesheet" href="styles/styles.css" />
+
+    <script
+      type="text/javascript"
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDMbgwSnS81v2Bnbn3tUmvi5PVqndcA0EA"
+    ></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
+
+    <script src="js/script.js" defer></script>
+    <script src="js/projects.js" defer></script>
+  </head>
+  <body>
+    <!-- <iframe
+      src="https://player.vimeo.com/video/595884190?h=4bdf5452f1&autoplay=1&loop=1&muted=1&background=1"
+      frameborder="0"
+      allow="autoplay; fullscreen"
+      allowfullscreen
+    >
+    </iframe> -->
+    <div class="credit">Artwork by: <b>Alex Maltsev</b>, <i>Blinded by Colors</i></div>
+    <header class="header">
+      <a href="#main">fms</a>
+      <nav>
+        <a href="#about">about</a>
+        <a href="#projects">projects</a>
+        <a href="#studentlist">student</a>
+        <a href="#gmap">contact</a>
+      </nav>
+    </header>
+    <section id="main">
+      <div class="eventname align-btm txt-uppercase">
+        <div class="bg_letters s" id="svg-container">
+          <h1 class="multiply eventdetails eventdetails_content">fms graduation showcase</h1>
+        </div>
+        <div class="bg_letters y"></div>
+        <div class="bg_letters n">
+          <div class="multiply eventdetails_venues eventdetails-gap event-flex">
+            <div class="eventdetails_content txt-uppercase">mediahub<i>/</i><br />gallery<i>/</i><br />playground</div>
+            <div class="eventdetails_content txt-uppercase">19&rightarrow;20&nbsp;Feb</div>
+          </div>
+        </div>
+        <div class="bg_letters c">
+          <div class="multiply eventdetails_col eventdetails-gap eventdetails_content event-flex">
+            <div>
+              <div class="eventdetails_sm">block</div>
+              <div>53</div>
+            </div>
+            <div>
+              <div class="eventdetails_sm">level</div>
+              <div>1</div>
+            </div>
+            <div>2025</div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="about" class="mb-100">
+      <p class="animate-text mb-10 w-35">
+        This showcase display student's works acquired not only a variety of skills but also the wisdom to apply them in
+        the right measure.
+      </p>
+      <p class="animate-text mb-10 w-35">Neither too little nor too much.</p>
+      <p class="animate-text w-35">
+        It represents harmony between creativity, technical skills, collaboration, and real-world applicability.
+      </p>
+      <div id="courses" class="mt-25">
+        <div class="subheader mb-20">Our Courses</div>
+        <p class="txt-bold">Film, Sound & Video [FSV]</p>
+        <p class="w-35">
+          FSV is Singapore's top filmmaking course, where aspiring filmmakers tell impactful stories and raise social
+          awareness. From pre-production to post-production, students use industry-standard tools and facilities. They
+          create works that inspire, uplift, and make a difference.
+        </p>
+        <p class="txt-bold">Mass Communication [MCM]</p>
+        <p class="w-35">
+          MCM is a premier course that trains versatile media professionals ready to excel in diverse fields. Students
+          gain hands-on experience in journalism, advertising, radio, and video production. It's a dynamic learning
+          journey preparing them for Singapore's vibrant media landscape.
+        </p>
+        <p class="txt-bold">Media Post-Production [MPP]</p>
+        <p class="w-35">
+          MPP trains students in motion graphics, audio and video editing, and multi-camera production. They create
+          immersive content using 3D motion graphics, sound design, and projection mapping. Graduates are skilled in
+          crafting for 'live' stage events and dynamic environments.
+        </p>
+      </div>
+    </section>
+    <section id="projects">
+      <h2 class="animate-left mix-overlay ml-15">pro_</h2>
+      <h2 class="animate-right mix-overlay outline ml-40">jects</h2>
+
+      <div class="project-listing flex flex-row ml-5 gap-3">
+        <div class="project-writeup w-25">
+          This year's showcase features a stunning array of student projects, from thought-provoking films to immersive
+          media installations and advertising campaigns. These works highlight creativity, technical mastery, and the
+          ability to craft impactful stories. Each project reflects the students' dedication and collaboration. They
+          showcase industry-ready skills developed through hands-on learning experiences.
+        </div>
+
+        <div class="project-mcm">
+          <h3>MCM</h3>
+          <!-- MCM projects are inserted here dynamically -->
+        </div>
+
+        <div class="project-fsv">
+          <h3>FSV</h3>
+          <!-- FSV projects are inserted here dynamically -->
+        </div>
+
+        <div class="project-mpp">
+          <h3>MPP</h3>
+          <!-- MPP projects are inserted here dynamically -->
+        </div>
+      </div>
+
+      <!-- Popup Structure with stopPropagation in the popup-content -->
+      <div id="projectPopup" class="popup-container">
+        <div class="popup-content" onclick="event.stopPropagation();">
+          <div class="popup-text">
+            <p id="popupTitle" class="popup-title mb-10"></p>
+            <p class="popup-subheader">Description</p>
+            <p id="popupDescription" class="popup-description mb-10"></p>
+            <p class="popup-subheader">Students</p>
+            <ul id="popupStudents" class="mb-10"></ul>
+            <p class="popup-subheader">Client</p>
+            <p id="popupClient"></p>
+          </div>
+          <div class="popup-images" id="popupImages">
+            <!-- Images will be dynamically inserted here -->
+          </div>
+          <button onclick="closePopup()">Close</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- <section id="studentlist">
+
+      <h4>Student List</h4>
+      <div class="names">
+        <div>
+          <h5>FSV</h5>
+          Qorem<br />ipsum<br />dolor<br />sit amet<br />consectetur<br />Qorem<br />ipsum<br />dolor<br />sit amet<br />consectetur<br />
+        </div>
+        <div>
+          <h5>MCM</h5>
+          Qorem<br />ipsum<br />dolor<br />sit amet<br />consectetur<br />Qorem<br />ipsum<br />dolor<br />sit amet<br />consectetur<br />
+        </div>
+        <div>
+          <h5>MPP</h5>
+          Qorem<br />ipsum<br />dolor<br />sit amet<br />consectetur<br />Qorem<br />ipsum<br />dolor<br />sit amet<br />consectetur<br />
+        </div>
+      </div>
+    </section> -->
+    <!--<section id="gmap">
+      <div class="gmap-title mix-overlay">
+        <h2 class="ganimate-left">come</h2>
+        <h2 class="ganimate-left outline">on</h2>
+        <h2 class="ganimate-right outline ml-20">by</h2>
+      </div>
+      <div class="contact-details">
+        <p class="animate-text">School of Film & Media Studies</p>
+        <p class="animate-text">Block 53 Level 01</p>
+        <p class="animate-text">535 Clementi Road 599489</p>
+      </div>
+
+      <div class="gmap-map">
+         <div id="map"></div>
+      </div>
+    </section>-->
+    <footer>&copy; 2024/25 School of film & media studies</footer>
+  </body>
+</html>
